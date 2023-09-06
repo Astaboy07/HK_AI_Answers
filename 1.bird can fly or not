@@ -1,0 +1,9 @@
+bird(eagle).
+bird(saprrow).
+bird(penguin).
+
+fly(penguin) :- !,fail.
+fly(X) :- bird(X).
+
+can_fly(Y) :- fly(Y),write(Y),write(',Can Fly').
+can_fly(Y) :- \+ fly(Y),write(Y),write(',Cannot Fly').
