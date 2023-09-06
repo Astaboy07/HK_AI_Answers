@@ -1,0 +1,20 @@
+female(pam).
+female(pat).
+female(liz).
+female(ann).
+male(bob).
+male(tom).
+male(jim).
+
+parent(pam,bob).
+parent(tom,bob).
+parent(tom,liz).
+parent(bob,pat).
+parent(bob,ann).
+parent(pat,jim).
+
+mother(M,C):- female(M),parent(M,C),write(M),write(',is a mother of'),write(C).
+father(F,C):- male(F),parent(F,C),write(F),write(',is a Father of'),write(C).
+grandfather(F,C):- male(F),parent(F,Parent),parent(Parent,C).
+brother(B,P):-male(B),parent(Parent,P),parent(Parent,B),B \=person.
+sister(S,P):-female(S),parent(Parent,P),parent(Parent,S),s \=person.
